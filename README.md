@@ -1,59 +1,86 @@
-# Frontend
+# 🌐 User Management Frontend (Angular Standalone + RxJS)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
+This is the **frontend** of a full-stack role-based user management system built using **Angular Standalone Components** and **RxJS**, designed to work seamlessly with a Node.js backend.
 
-## Development server
+> 🔐 Supports secure login, role-based access (admin/user), and real-time reactive patterns using RxJS.
 
-To start a local development server, run:
+---
+
+## ✨ Features
+
+- ✅ Angular Standalone Components (v17+)
+- 🔐 JWT-based Login & Logout
+- 🔒 Route protection with `AuthGuard`
+- 🧠 Full User CRUD interface for Admins
+- 💡 RxJS for reactive logic and state flow
+- 🧰 HTTP Interceptor for secure API calls
+- 🎨 Modern responsive UI using Bootstrap
+- 🚀 Built for scalability (millions of users)
+
+---
+
+## 📁 Project Structure
+
+src/
+├── app/
+│ ├── services/ → API & Auth logic
+│ ├── guards/ → AuthGuard (Role Protected)
+│ ├── components/ → login/, users/ (CRUD)
+│ ├── app.routes.ts → Angular Standalone Routing
+│ └── app.component.ts → Root component
+
+
+---
+
+## ⚙️ Installation
 
 ```bash
+git clone https://github.com/your-username/user-management-frontend.git
+cd user-management-frontend
+npm install
+
+▶️ Run the Dev Server
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
-## Code scaffolding
+Open your browser at: http://localhost:4200
+The app will auto-reload when you change any source files.
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
+🔧 Build for Production
+bash
+Copy
+Edit
 ng build
-```
+This will build the app into the dist/ directory with optimizations.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+✅ Login Credentials (Sample)
+Role	Email	Password
+Admin	admin@example.com	123456
+User	user@example.com	123456
 
-## Running unit tests
+📚 Technologies Used
+Angular 17+
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+RxJS
 
-```bash
-ng test
-```
+Bootstrap 5
 
-## Running end-to-end tests
+JWT
 
-For end-to-end (e2e) testing, run:
+TypeScript
 
-```bash
-ng e2e
-```
+📦 Backend
+This frontend connects to the backend available at:
+👉 user-management-backend
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+📄 License
+MIT © [Your Name or Organization]
 
-## Additional Resources
+yaml
+Copy
+Edit
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+Let me know, Boss, if you also want the **backend README.md** or you want me to auto-generate both as downloadable `.md` files.
+
