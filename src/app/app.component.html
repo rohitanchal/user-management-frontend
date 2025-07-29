@@ -1,0 +1,31 @@
+<!-- Navbar (only when logged in) -->
+<nav *ngIf="auth.isLoggedIn()" class="navbar navbar-expand navbar-light bg-light px-3 border">
+    <a class="navbar-brand" href="#">Dashboard</a>
+
+    <div class="ms-auto">
+        <button class="btn btn-outline-danger" (click)="logout()">Logout</button>
+    </div>
+</nav>
+
+<!-- Main Content -->
+<div class="min-vh-80">
+    <router-outlet />
+</div>
+
+<!-- Summary Footer (ONLY for non-logged-in users) -->
+<footer *ngIf="!auth.isLoggedIn()" class="bg-light border rounded p-3 mx-5 mb-5">
+    <div class="container">
+        <h5 class="mb-2">🔐 Full-Stack Role-Based User Management App</h5>
+        <p class="mb-0">
+            This is a production-ready full-stack application built with
+            <strong>Angular Standalone + RxJS</strong> on the frontend and
+            <strong>Node.js + Express + MongoDB</strong> on the backend. It features secure
+            <strong>JWT-based authentication</strong>, <strong>role-based access control (admin/user)</strong>, and full
+            <strong>CRUD operations</strong> for user management. Admins can log in, view all users, create new users
+            with
+            hashed passwords, update existing ones, and delete accounts. All API requests are protected using an
+            <strong>HTTP Interceptor</strong> and restricted using middleware authorization. Designed for scalability,
+            it supports millions of users using real-time reactive patterns with RxJS.
+        </p>
+    </div>
+</footer>
