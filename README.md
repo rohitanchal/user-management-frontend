@@ -39,18 +39,20 @@ git clone https://github.com/your-username/user-management-frontend.git
 cd user-management-frontend
 npm install
 
+```
 ▶️ Run the Dev Server
+```bash
 ng serve
+```
 
 
 Open your browser at: http://localhost:4200
 The app will auto-reload when you change any source files.
 
 🔧 Build for Production
-bash
-Copy
-Edit
+```bash
 ng build
+```
 This will build the app into the dist/ directory with optimizations.
 
 ✅ Login Credentials (Sample)
@@ -76,11 +78,9 @@ This frontend connects to the backend available at:
 📄 License
 MIT © [Your Name or Organization]
 
-yaml
-Copy
-Edit
-
+```bash
 ---
 
 Let me know, Boss, if you also want the **backend README.md** or you want me to auto-generate both as downloadable `.md` files.
+```
 
