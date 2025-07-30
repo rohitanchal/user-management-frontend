@@ -14,11 +14,19 @@ import { Router } from '@angular/router';
 
 export class AppComponent {
   title = 'frontend';
+  logoutLoading = false;
 
   constructor(public auth: AuthService, private router: Router) {}
 
   logout() {
-    this.auth.logout();
-    this.router.navigate(['/login']);
+    if (this.logoutLoading) return;
+
+    this.logoutLoading = true;
+
+    setTimeout(() => {
+      this.auth.logout();
+      this.router.navigate(['/login']);
+      this.logoutLoading = false;
+    }, 1000);
   }
 }

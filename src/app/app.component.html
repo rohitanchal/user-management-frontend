@@ -3,8 +3,12 @@
     <a class="navbar-brand" href="#">Dashboard</a>
 
     <div class="ms-auto">
-        <button class="btn btn-outline-danger" (click)="logout()">Logout</button>
+        <button class="btn btn-outline-danger d-flex align-items-center" (click)="logout()" [disabled]="logoutLoading">
+          <span *ngIf="logoutLoading" class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
+          {{ logoutLoading ? 'Logging out...' : 'Logout' }}
+        </button>
     </div>
+      
 </nav>
 
 <!-- Main Content -->

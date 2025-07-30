@@ -16,6 +16,10 @@ export class UsersComponent implements OnInit, OnDestroy {
 
   form!: FormGroup;
   users: User[] = [];
+  saveLoading = false;
+  deleteLoadingIds: Set<string> = new Set();
+  editLoadingId: string | null = null; 
+  showPassword = false;
 
   private destroy$ = new Subject<void>();
 
@@ -41,6 +45,11 @@ export class UsersComponent implements OnInit, OnDestroy {
   }
 
   saveUser() {
+    if (this.saveLoading) return; 
+    if (this.form.invalid) return; 
+
+    this.saveLoading = true;
+
     const user = this.form.value;
     const req$ = user._id
       ? this.userService.updateUser(user)
@@ -50,20 +59,49 @@ export class UsersComponent implements OnInit, OnDestroy {
       tap(() => this.form.reset()),
       switchMap(() => this.userService.getUsers()),
       takeUntil(this.destroy$)
-    ).subscribe(users => this.users = users);
+    ).subscribe({
+      next: (users) => {
+        this.users = users;
+        this.saveLoading = false;
+      },
+      error: () => {
+        this.saveLoading = false;
+      }
+    });
   }
 
   editUser(user: User) {
-    this.form.patchValue(user);
+    this.editLoadingId = user._id!;
+
+    setTimeout(() => {
+      this.form.patchValue(user);
+      this.editLoadingId = null;
+    }, 500); 
+  }
+
+  togglePasswordVisibility() {
+    this.showPassword = !this.showPassword;
   }
 
   deleteUser(id: string) {
+    if (this.deleteLoadingIds.has(id)) return;
+
+    this.deleteLoadingIds.add(id);
+
     this.userService.deleteUser(id)
       .pipe(
         switchMap(() => this.userService.getUsers()),
         takeUntil(this.destroy$)
       )
-      .subscribe(users => this.users = users);
+      .subscribe({
+        next: (users) => {
+          this.users = users;
+          this.deleteLoadingIds.delete(id);
+        },
+        error: () => {
+          this.deleteLoadingIds.delete(id);
+        }
+      });
   }
 
   ngOnDestroy() {

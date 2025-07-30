@@ -9,7 +9,7 @@
             <p class="text-muted mb-0">Login to manage your users</p>
         </div>
 
-        <form (ngSubmit)="login()">
+        <form #loginForm="ngForm" (ngSubmit)="login(loginForm)">
             <div class="form-floating mb-3">
                 <input type="email" class="form-control" id="email" placeholder="Email" [(ngModel)]="email" name="email"
                     required>
@@ -24,7 +24,10 @@
 
             <div *ngIf="error" class="alert alert-danger py-2 text-center small">{{ error }}</div>
 
-            <button type="submit" class="btn btn-primary btn-lg w-100">Login</button>
+            <button type="submit" class="btn btn-primary btn-lg w-100 d-flex align-items-center justify-content-center" [disabled]="loading">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm me-2" aria-hidden="true"></span>
+                {{ loading ? 'Logging in...' : 'Login' }}
+            </button>
         </form>
     </div>
 </div>
