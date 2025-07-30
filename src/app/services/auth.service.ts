@@ -7,7 +7,7 @@ import { tap } from 'rxjs';
 })
 
 export class AuthService {
-  private api = 'http://localhost:3000/api/auth';
+  private api = 'https://user-management-backend-production-f62b.up.railway.app/api/auth';
 
   constructor(private http: HttpClient) {}
 

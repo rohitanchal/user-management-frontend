@@ -15,7 +15,7 @@ export interface User {
 
 export class UsersService {
 
-  private api = 'http://localhost:3000/api/users';
+  private api = 'https://user-management-backend-production-f62b.up.railway.app/api/users';
 
   constructor(private http: HttpClient) {}
 
