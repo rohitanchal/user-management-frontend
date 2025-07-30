@@ -12,7 +12,6 @@
   "private": true,
   "dependencies": {
     "@angular/animations": "^19.0.0",
-    "@angular/cdk": "^15.2.8",
     "@angular/common": "^19.0.0",
     "@angular/compiler": "^19.0.0",
     "@angular/core": "^19.0.0",
@@ -22,7 +21,6 @@
     "@angular/platform-server": "^19.0.0",
     "@angular/router": "^19.0.0",
     "@angular/ssr": "^19.0.4",
-    "@coreui/angular": "^5.2.0",
     "@coreui/coreui": "^5.4.1",
     "bootstrap": "^5.3.7",
     "express": "^4.18.2",
